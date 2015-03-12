@@ -1,12 +1,12 @@
 # coding=utf-8
 
-import MySQLdb as mdb #Library for MySQL connection
-import os             #Library for doing bash commands
-import argparse       #Library for commands
-import random         #Random library for strong random password
-import string         #Library used for generating password
-import smtplib        #Library for sending e-mail
-import crypt
+import MySQLdb as mdb             #Library for MySQL connection
+import os                         #Library for doing bash commands
+import argparse                   #Library for commands
+import random                     #Random library for strong random password
+import string                     #Library used for generating password
+import smtplib                    #Library for sending e-mail
+import crypt                      
 
 from email.mime.multipart import MIMEMultipart
 from email.mime.text import MIMEText
@@ -19,9 +19,11 @@ SendMailAddress = "noreply@pegasus.ch"
 BackupFileFolder = "backup/SitesToBackup.txt"
 Version = "2.09"
 
+#MySQL config
 MySQLUser = "root"
 MySQLPassword = "Pa$$w0rd"
 
+#Welcome screen
 
 print(
 """############################################################
@@ -53,12 +55,18 @@ connect = mdb.connect('localhost', MySQLUser, MySQLPassword);
 requestID = connect.cursor()
 requestID.execute("select * from mysql.user;")
 
+#Connection to MySQL database
+
 print("Connecting to MySQL databse with User: " + MySQLUser + " Password: ****")
+
+#Defining charset for strong password
 
 char_set = string.ascii_uppercase + string.digits +string.ascii_lowercase
 
 print("\n\nDefining charset for generating strong password")
 
+
+#Arguments
 parser = argparse.ArgumentParser()
 parser.add_argument("-d", "--domainname", dest = 'domainname', action = 'store', help = "Domain name to host", required=True)
 parser.add_argument("-u", "--username", dest = 'username', action = 'store', help = "The username", required=True)
@@ -70,7 +78,7 @@ parser.add_argument("-s", "--webserver", dest = 'webserver', action = 'store', d
 args = parser.parse_args()
 
 
-
+#Control if Pegasus is installed
 if not os.path.exists(DataFolder):
   print("Pegasus not installed, please install on official Github repository")
   sys.exit(0)
