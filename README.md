@@ -2,9 +2,9 @@
 API Pegasus
 ===========
 
-You have a server with a pulblic IP and you want to host some friends? 
+You have a server with a public IP and want to host some friends? 
 
-With Pegasus will be able to create and manage hosting with a script launched on command line
+Pegasus allow you to create and manage hosting with a CLI.
 
 ## Install
 
@@ -14,8 +14,8 @@ Download the script ""install.py"" and launched it! It will install and configur
 
 ## Pegasus
 
-The script is still on developpement, I will publish when the alpha version works. Be patient ;)
+The script is still on developpement. The alpha version is soon availbale. Be patient ;)
 
 ## Author
 
-My name is Noé Ferrari, and my passion is IT Security! I want to host some friends in my webhost. Let's do some Python :D
+My name is Noé Ferrari, and I'm passionate by IT Security! I want to host some friends in my VPS. Let's do some Python :D
